@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^15.0.0",
     "@theme-ui/presets": "^0.10.0",
     "contentful": "^8.4.2",
     "next": "11.0.1",
@@ -17,7 +18,7 @@
     "theme-ui": "^0.10.0"
   },
   "devDependencies": {
-    "eslint": "7.31.0",
+    "eslint": "^7.32.0",
     "eslint-config-next": "11.0.1",
     "prettier": "2.3.2"
   }

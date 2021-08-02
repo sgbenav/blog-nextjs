@@ -4,8 +4,10 @@ import Link from 'next/link'
 import { jsx, Flex, Box, Button, Text } from 'theme-ui'
 import { useColorMode } from 'theme-ui'
 import Emoji from '../components/Emoji'
+import Logo from '../assets/logo.svg'
+import Theme from '../assets/theme.svg'
 
-export default function Nav() {
+export default function Navbar() {
   const [colorMode, setColorMode] = useColorMode()
   const [small, setSmall] = useState(false)
 
@@ -19,18 +21,19 @@ export default function Nav() {
   return (
     <Box
       as="header"
-      variant="containerFluid"
+      variant="containerFixed"
       sx={{ padding: small ? '10px 25px' : '5px 10px', bg: small ? 'background' : 'transparent' }}
     >
       <Box as="nav" variant="navigation">
         <Flex p={2} sx={{ alignItems: 'center' }}>
-          <Flex className="logo" sx={{ flex: '1 1 auto' }}>
-            <Text as="h1">
-              <Link href="/">
-                <a sx={{ variant: 'link' }}>Logo</a>
-              </Link>
-            </Text>
-          </Flex>
+          <Box sx={{ flex: '1 1 auto' }}>
+            <Link href="/">
+              <a sx={{ variant: 'link', display: 'flex', alignItems: 'center' }}>
+                <Logo sx={{ variant: 'logo' }} />
+                <span sx={{ mb: 1, ml: 1, fontWeight: '300', fontFamily: 'Monaco' }}>minare</span>
+              </a>
+            </Link>
+          </Box>
           <Link href="/blog">
             <a sx={{ variant: 'link' }}>Blog</a>
           </Link>
@@ -45,19 +48,18 @@ export default function Nav() {
           </Link>
 
           <Button
-            bg="transparent"
+            bg="elevateBackground"
             sx={{
               cursor: 'pointer',
-              borderColor: 'secondary',
               display: 'flex',
               alignItems: 'center',
-              padding: '20px 10px',
+              padding: '10px 15px',
             }}
             onClick={(e) => {
               setColorMode(colorMode === 'light' ? 'dark' : 'light')
             }}
           >
-            {colorMode === 'light' ? <Emoji emoji="☀️" label="sun" /> : <Emoji emoji="🌕" label="moon" />}
+            <Theme sx={{ variant: 'themeIcon' }} />
           </Button>
         </Flex>
       </Box>

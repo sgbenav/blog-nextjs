@@ -1,13 +1,15 @@
+/** @jsxImportSource theme-ui */
+import { Card, Text, Box } from 'theme-ui'
 import { createClient } from 'contentful'
 import PostCard from '../../components/PostCard'
 
 export default function Blog({ posts }) {
   return (
-    <section>
+    <Box as="section" variant="cardContainer">
       {posts.map((post) => (
         <PostCard key={post.sys.id} post={post} />
       ))}
-    </section>
+    </Box>
   )
 }
 

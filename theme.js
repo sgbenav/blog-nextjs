@@ -1,4 +1,3 @@
-import { roboto } from '@theme-ui/presets'
 const theme = {
   initialColorModeName: 'light',
   colors: {
@@ -6,11 +5,13 @@ const theme = {
     secondary: '#E94E7C',
     accent: '#2C0A8E',
     background: '#fff',
+    elevateBackground: '#E1EBF6',
     text: '#0A0C10',
     modes: {
       dark: {
         accent: '#F9E200',
         background: '#0F141A',
+        elevateBackground: '#1D253B',
         text: '#fff',
       },
     },
@@ -39,7 +40,7 @@ const theme = {
     mt: '125px',
     padding: '10px',
   },
-  containerFluid: {
+  containerFixed: {
     width: '100%',
     m: 0,
     mx: 'auto',
@@ -47,6 +48,7 @@ const theme = {
     overflow: 'hidden',
     position: 'fixed',
     transition: '0.25s ease',
+    zIndex: 1,
   },
   title: {
     color: 'accent',
@@ -64,6 +66,12 @@ const theme = {
   },
   paragraph: {
     fontSize: '19px',
+    b: {
+      color: 'secondary',
+    },
+    i: {
+      color: 'accent',
+    },
   },
   link: {
     color: 'accent',
@@ -73,63 +81,65 @@ const theme = {
     mr: 3,
     ':hover': {
       color: 'secondary',
+      svg: {
+        fill: 'secondary',
+      },
     },
   },
   emoji: {
     fontSize: '30px',
     lineHeight: '0',
     textAlign: 'center',
+    color: 'red',
+  },
+  logo: {
+    height: '30px',
+    width: '30px',
+    fill: 'accent',
+  },
+  themeIcon: {
+    minHeight: '22px',
+    width: '22px',
+    path: {
+      fill: 'accent',
+    },
+    strokeWidth: '4px',
+  },
+  card: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '320px',
+    bg: 'elevateBackground',
+    overflow: 'hidden',
+    borderRadius: '10px',
+    border: '4px solid',
+    borderColor: 'elevateBackground',
+  },
+  cardTitle: {
+    fontSize: '24px',
+    fontWeight: 'normal',
+    letterSpacing: '1px',
+  },
+  cardSummary: {
+    textOverflow: 'ellipsis',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    fontSize: '16px',
+    fontWeight: 'normal',
+    letterSpacing: '1px',
+    lineHeight: '1.2',
+  },
+  cardImage: {
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+  },
+  cardContainer: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+    justifyItems: 'center',
+    gap: '20px',
   },
 }
 
 export default theme
-
-// initialColorModeName: 'light',
-//   useColorSchemeMediaQuery: true,
-//   colors: {
-//   text: '#000',
-//     background: '#fff',
-//     primary: '#07c',
-//     secondary: '#609',
-//     modes: {
-//     dark: {
-//       text: '#fff',
-//         background: '#222',
-//         primary: '#0cf',
-//         secondary: '#90c',
-//     },
-//   },
-// },
-// fonts: {
-//   body: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-//     heading: 'inherit',
-// },
-// styles: {
-//   root: {
-//     fontFamily: 'body',
-//       color: 'text',
-//       bg: 'background',
-//   },
-//   h1: {
-//     fontSize: [4, 5, 6],
-//       color: 'primary',
-//   },
-//   h2: {
-//     color: 'primary',
-//   },
-//   a: {
-//     color: 'primary',
-//       textDecoration: 'none',
-//       ':hover': {
-//       color: 'secondary',
-//         textDecoration: 'underline',
-//     },
-//   },
-// },
-// container: {
-//   width: '100%',
-//     maxWidth: '1024px',
-//     m: 0,
-//     mx: 'auto',
-// },
-// }

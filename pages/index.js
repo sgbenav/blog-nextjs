@@ -4,7 +4,7 @@ import { Box, Text } from 'theme-ui'
 
 export default function Home() {
   return (
-    <Box as="main" sx={{ variant: 'container', height: `calc(100vh - 60px)` }}>
+    <Box as="main">
       <Text as="h1" sx={{ variant: 'title' }}>
         HERE
       </Text>

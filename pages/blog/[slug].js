@@ -1,7 +1,8 @@
+/** @jsxImportSource theme-ui */
 import { createClient } from 'contentful'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import Image from 'next/image'
-import { Flex, Box, Button, Text } from 'theme-ui'
+import { jsx, Flex, Box, Button, Text } from 'theme-ui'
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -9,20 +10,20 @@ const client = createClient({
 })
 
 export default function RecipeDetails({ post }) {
-  console.log(post)
   const { featuredImage, title, content } = post.fields
   return (
-    <Box as="article" sx={{ variant: 'container' }}>
-      <Box as="header">
+    <Box as="article">
+      <Box as="header" sx={{ mb: 5 }}>
         <Image
           src={`https:${featuredImage.fields.file.url}`}
           width={featuredImage.fields.file.details.image.width}
           height={featuredImage.fields.file.details.image.height}
+          alt={title}
         />
-        <h2>{title}</h2>
       </Box>
       <Box as="section">
-        <Text>{documentToReactComponents(content)}</Text>
+        <Text variant="subtitle">{title}</Text>
+        <Text variant="paragraph">{documentToReactComponents(content)}</Text>
       </Box>
       <Box as="footer"></Box>
     </Box>

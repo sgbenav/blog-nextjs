@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.0.0",
+    "@svgr/webpack": "^5.5.0",
     "@theme-ui/presets": "^0.10.0",
     "contentful": "^8.4.2",
     "next": "11.0.1",

@@ -1,15 +1,19 @@
 /** @jsxImportSource theme-ui */
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { jsx, Flex, Box, Button, Text } from 'theme-ui'
+import { Flex, Box, Button } from 'theme-ui'
 import { useColorMode } from 'theme-ui'
-import Emoji from '../components/Emoji'
 import Logo from '../assets/logo.svg'
-import Theme from '../assets/theme.svg'
+import Sun from '../assets/sun.svg'
+import Moon from '../assets/moon.svg'
 
 export default function Navbar() {
   const [colorMode, setColorMode] = useColorMode()
+  const [mounted, setMounted] = useState(false)
   const [small, setSmall] = useState(false)
+
+  // After mounting, we have access to the theme
+  useEffect(() => setMounted(true), [])
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -46,21 +50,22 @@ export default function Navbar() {
           <Link href="/contact">
             <a sx={{ variant: 'link' }}>Contact</a>
           </Link>
-
-          <Button
-            bg="elevateBackground"
-            sx={{
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              padding: '10px 15px',
-            }}
-            onClick={(e) => {
-              setColorMode(colorMode === 'light' ? 'dark' : 'light')
-            }}
-          >
-            <Theme sx={{ variant: 'themeIcon' }} />
-          </Button>
+          {mounted && (
+            <Button
+              bg="elevateBackground"
+              sx={{
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                padding: '10px 15px',
+              }}
+              onClick={(e) => {
+                setColorMode(colorMode === 'light' ? 'dark' : 'light')
+              }}
+            >
+              {colorMode === 'light' ? <Sun sx={{ variant: 'themeIcon' }} /> : <Moon sx={{ variant: 'themeIcon' }} />}
+            </Button>
+          )}
         </Flex>
       </Box>
     </Box>

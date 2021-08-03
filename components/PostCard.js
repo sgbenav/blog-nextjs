@@ -12,7 +12,7 @@ export default function PostCard({ post }) {
   useEffect(() => {
     const words = ref.current?.innerText.length
     const WPS = 275 / 60
-    setReadingTime(Math.ceil(words / WPS / 60))
+    setReadingTime(Math.ceil(words / WPS))
   }, [readingTime])
 
   return (

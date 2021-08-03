@@ -74,7 +74,7 @@ const theme = {
     },
   },
   link: {
-    color: 'accent',
+    color: 'text',
     fontSize: '19px',
     textDecoration: 'none',
     cursor: 'pointer',
